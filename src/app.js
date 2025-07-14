@@ -1,27 +1,25 @@
-import "bootstrap";
-import "./style.css";
 
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-let who = ['The dog', 'My grandma', 'The mailman', 'My Kids'];
+let who = ['The dog', 'My grandma', 'The mailman', 'My kids'];
 let action = ['ate', 'ripped', 'wet', 'broke'];
 let what = ['my homework', 'my phone', 'my keys'];
 let when = ['before the class', 'when I was sleeping', 'while I was showering', 'during my lunch', 'while I was praying'];
 
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+function randomfrom(array) {
+    return array[Math.floor(Math.random() * array.length)];
 }
 
-function getRandom(anyArray){
-  let max = anyArray.length -1;
-  let min = 0;
-  let random = getRandomNumber(min, max);
-  return anyArray[random];
+function genexcuse() {
+    const excuse = `${randomfrom(who)} ${randomfrom(action)} ${randomfrom(what)} ${randomfrom(when)}.`;
+    document.getElementById("excuse").textContent = excuse;
 }
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+
+window.onload = function () {
+    genexcuse(); 
+
+   
+    document.getElementById("new-excuse").addEventListener("click", genexcuse);
 };
+
+
